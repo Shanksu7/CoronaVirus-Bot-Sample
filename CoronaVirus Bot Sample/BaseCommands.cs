@@ -22,7 +22,7 @@ namespace testbot
         => await ReplyAsync(embed: new EmbedBuilder()
             .WithColor(Color.Red)
             .WithAuthor(Program.Bot.Client.CurrentUser)
-            .WithDescription("[Invite me to your server!!](https://discordapp.com/api/oauth2/authorize?client_id=675119026241798154&permissions=2147483127&scope=bot)").Build());
+            .WithDescription($"[Invite me to your server!!](https://discordapp.com/api/oauth2/authorize?client_id={Program.Bot.Client.CurrentUser.Id}&permissions=2147483127&scope=bot)").Build());
         [Command("virus")]
         public async Task Healp()
         => await ReplyAsync(embed:nCoV_2019_Core.CoronaVirusRegistry.embed_mini);

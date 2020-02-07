@@ -21,7 +21,7 @@ namespace nCoV_2019_Core
                 var web = new HtmlWeb();
                 var htmlDoc = web.Load(html);
                 var node = htmlDoc.DocumentNode.SelectNodes("//tr[@style='height:19px;']");
-                var br = false;
+                var headersSkipped = false;
                 foreach (var n in node)
                 {
                     var country = n.ChildNodes[2].InnerText;
@@ -32,8 +32,8 @@ namespace nCoV_2019_Core
                     var result = $"{country} - [{confirm}] [{death}] [{recov}]";
                     if (country == "Country/Region")
                     {
-                        if (!br)
-                            br = true;
+                        if (!headersSkipped)
+                            headersSkipped = true;
                         else
                             break;
                     }
